@@ -1,0 +1,13 @@
+{  "name" : "drain",
+   "version" : "0.1.0",
+   "description" : "an event drain (sink) to easy async testing",
+   "homepage" : "http://github.com/brianc/drain",
+   "repository" : {
+     "type" : "git",
+     "url" : "git://github.com/brianc/drain.git"
+   },
+   "author" : "Brian Carlson <brian.m.carlson@gmail.com>",
+   "main" : "./lib/index",
+   "directories" : { "lib" : "./lib" },
+   "scripts" : { "test" : "make test" }
+}
