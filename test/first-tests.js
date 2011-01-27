@@ -2,7 +2,6 @@ var Drain = require(__dirname + "/../lib/");
 var should = require("should");
 var assert = require("assert");
 
-
 var test = function(name, action) {
   process.stdout.write(".");
   action();
@@ -94,5 +93,19 @@ test('an error', function() {
         duration.should.be.below(2000);
       })
     }
+  })
+})
+
+test('test for expectations', function() {
+  test('can initialize with no expectations', function() {
+    var called = false;
+    var drain = new Drain(1, function() {
+      called = true;
+    });
+    drain.expect(1);
+    drain.set();
+    called.should.equal(false);
+    drain.set();
+    called.should.equal(true);
   })
 })
