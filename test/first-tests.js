@@ -109,3 +109,17 @@ test('test for expectations', function() {
     called.should.equal(true);
   })
 })
+
+test('supply timeout', function() {
+  var called = false;
+  var drain = new Drain(1, 100, function() {
+    called = true;
+  })
+  called.should.equal(false);
+  setTimeout(function() {
+    drain.set();
+  }, 1000);
+  drain.should.emit('error', function() {
+
+  })
+})
