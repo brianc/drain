@@ -39,7 +39,7 @@ test('full callback fires', function() {
     count = 1;
   });
   count.should.eql(0);
-  drain.add();
+  drain.set();
   count.should.eql(1);
 });
 
@@ -49,7 +49,7 @@ test('can pass callback as ctor param', function() {
     count++;
   });
   count.should.eql(0);
-  drain.add();
+  drain.set();
   count.should.eql(1);
 })
 
@@ -60,10 +60,10 @@ test('muiltple adds', function() {
   });
   count.should.eql(0);
   for(var i = 0; i < 9; i++) {
-    drain.add();
+    drain.set();
   }
   count.should.eql(0);
-  drain.add();
+  drain.set();
   count.should.eql(1);
 })
 
@@ -85,7 +85,7 @@ test('an error', function() {
     for(var i = 0; i < 9; i++) {
       setTimeout(function() {
         test('adds', function() {
-          drain.add();
+          drain.set();
         })
       }, i * 100);
       drain.should.emit('error', 3000, function() {
