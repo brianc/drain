@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/brianc/drain.png)](http://travis-ci.org/brianc/drain)
 #drain
 
 A way to help test async code.
